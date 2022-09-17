@@ -15,3 +15,18 @@ reader.on('end', (data) => {
 reader.on('error', (err) => {
   console.log(err);
 });
+
+
+/// Pipe
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer(function (req, res) {
+  req.pipe(fs.createWriteStream(`./out-${Math.random()}.txt`));
+});
+
+server.listen(3000);
+
+/*
+fileReader.pipe(res)
+*/
