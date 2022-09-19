@@ -87,3 +87,17 @@ app.use('/admin', backoffice);
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
 });
+
+
+const mongoose = require('mongoose');
+
+
+// подключаемся к серверу mongo
+mongoose.connect('mongodb://localhost:27017/mydb', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+    useFindAndModify: false
+});
+
+
+mongoose.connect('mongodb://localhost:27017/mynewdb');
